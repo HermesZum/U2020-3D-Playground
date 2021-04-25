@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace U3Gear.Playground
@@ -8,6 +8,7 @@ namespace U3Gear.Playground
     /// Alternate movement of a platform between two points.
     /// This script should be attached to the object that will be used as a mobile platform.
     /// </summary>
+    [RequireComponent(typeof(Transform))]
     public class SimplePlatform : MonoBehaviour
     {
         /// ==================================================
@@ -15,7 +16,10 @@ namespace U3Gear.Playground
         /// ==================================================
 
         // Change of direction of movement of the platform when it reaches its destination.
-        private bool _switch = false;
+        private bool _switch;
+
+        // Tolerance value between twos positions.
+        private const float Tolerance = .1f;
 
         /// ==================================================
         /// Private Visible Variables
@@ -59,14 +63,16 @@ namespace U3Gear.Playground
         private IEnumerator HoldTime()
         {
             // When it reaches the destination, the hold time is activated.
-            if (transform.position != _destination.position) yield break;
-            // Uses the _holdtime variable value.
-            yield return new WaitForSeconds(_holdtime);
-            // After the hold time has elapsed it activates the change of direction and starts the movement.
-            _switch = true;
+            if (Math.Abs(transform.position.y - _destination.position.y) < Tolerance)
+            {
+                // Uses the _holdtime variable value.
+                yield return new WaitForSeconds(_holdtime);
+                // After the hold time has elapsed it activates the change of direction and starts the movement.
+                _switch = true;
+            }
 
             // When it reaches the origin, the hold time is activated.
-            if (transform.position != _origin.position) yield break;
+            if (!(Math.Abs(transform.position.y - _origin.position.y) < Tolerance)) yield break;
             // Uses the _holdtime variable value.
             yield return new WaitForSeconds(_holdtime);
             // After the hold time has elapsed it starts the movement.
