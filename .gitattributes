@@ -46,6 +46,8 @@
 # Unity Text Assets =================================
 # ===================================================
 *.anim                 merge=unityyamlmerge    eol=lf
+# Terrains and Navemesh .assets are binary. 
+# unityyamlmerge will take care of it.
 *.asset                merge=unityyamlmerge    eol=lf
 *.controller           merge=unityyamlmerge    eol=lf
 *.mat                  merge=unityyamlmerge    eol=lf
@@ -69,14 +71,6 @@
 *.shadervariants       merge=unityyamlmerge    eol=lf
 *.preset               merge=unityyamlmerge    eol=lf
 *.asmdef               -text                     diff
-# ===================================================
-# Note: Terrain assets must have "-Terrain" suffix. =
-# ===================================================
-*-[Tt]errain.asset     merge=unityyamlmerge    eol=lf
-# ===================================================
-# Note: Navmesh assets must have "-NavMesh" suffix. =
-# ===================================================
-*-[Nn]av[Mm]esh.asset  merge=unityyamlmerge    eol=lf
 # ===================================================
 # Unity Binary Assets ===============================
 # ===================================================
