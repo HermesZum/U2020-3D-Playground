@@ -1,0 +1,19 @@
+stages:
+  - test
+  - build
+  - deploy
+unit-test:
+  stage: test
+  script: echo 'Testing...'
+  tags: 
+  - unity
+unity-build:
+  stage: build
+  script: echo 'Building...'
+  tags: 
+  - unity
+playstore:
+  stage: deploy
+  script: echo 'Deploying...'
+  tags: 
+  - unity
