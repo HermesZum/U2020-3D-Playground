@@ -23,7 +23,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.7",
+      "version": "2.0.14",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -32,7 +32,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.3",
+      "version": "1.2.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -55,7 +55,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.24",
+      "version": "1.1.29",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -83,6 +83,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.vladfaust.unitywakatime": {
+      "version": "https://github.com/vladfaust/unity-wakatime.git#package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4dedbeac2e2d61c5c892e517728d2c4c74ce0acc"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

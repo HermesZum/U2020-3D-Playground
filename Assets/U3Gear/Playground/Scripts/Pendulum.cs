@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace U3Gear.Playground
+namespace U3Gear.Playground.Scripts
 {
 /// <summary>
     /// Mechanize the rotation between two points causing pendulum effect.
@@ -21,17 +20,17 @@ namespace U3Gear.Playground
         /// Private Visible Variables
         /// ==================================================
 
-        [SerializeField, Range(0.0f, 5.0f), Tooltip("The speed of the pendulum.")]
-        private float _speed = 2.0f;
+        [FormerlySerializedAs("_speed")] [SerializeField, Range(0.0f, 5.0f), Tooltip("The speed of the pendulum.")]
+        private float speed = 2.0f;
 
-        [SerializeField, Range(0.0f, 10.0f), Tooltip("The moment of departure of the pendulum, creating a different moment in relation to the other pendulums.")]
-        private float _startTime = 0.0f;
+        [FormerlySerializedAs("_startTime")] [SerializeField, Range(0.0f, 10.0f), Tooltip("The moment of departure of the pendulum, creating a different moment in relation to the other pendulums.")]
+        private float startTime;
 
-        [SerializeField, Range(0.0f, 360.0f), Tooltip("The direction of the pendulum in degrees.")]
-        private float _pendulumDirection = 0.0f;
+        [FormerlySerializedAs("_pendulumDirection")] [SerializeField, Range(0.0f, 360.0f), Tooltip("The direction of the pendulum in degrees.")]
+        private float pendulumDirection;
 
-        [SerializeField, Range(0.0f, 90.0f), Tooltip("The amplitude of rotation of the pendulum in degrees. Influence speed at low amplitudes.")]
-        private float _pendulumAmplitude = 90.0f;
+        [FormerlySerializedAs("_pendulumAmplitude")] [SerializeField, Range(0.0f, 90.0f), Tooltip("The amplitude of rotation of the pendulum in degrees. Influence speed at low amplitudes.")]
+        private float pendulumAmplitude = 90.0f;
 
         /// ==================================================
         /// Unity Methods
@@ -54,12 +53,12 @@ namespace U3Gear.Playground
         /// </summary>
         private void FixedUpdate()
         {
-            // Assigns the time in seconds it took to complete the last frame (Time.deltaTime) to the varivale _startTime.
-            _startTime += Time.deltaTime;
+            // Assigns the time in seconds it took to complete the last frame (Time.deltaTime) to the variable startTime.
+            startTime += Time.deltaTime;
 
-            // Assigns the rotation interpolated between _start and _end by sine of _startTime * _speed
+            // Assigns the rotation interpolated between start and _end by sine of startTime * _speed
             // to the transform.rotation and normalizes the result afterwards.
-            transform.rotation = Quaternion.Lerp(_start, _end, (Mathf.Sin(_startTime * _speed + Mathf.PI / 2) + 1.0f) / 2.0f);
+            transform.rotation = Quaternion.Lerp(_start, _end, (Mathf.Sin(startTime * speed + Mathf.PI / 2) + 1.0f) / 2.0f);
         }
 
         /// ==================================================
@@ -72,13 +71,13 @@ namespace U3Gear.Playground
         private void Init()
         {
             // Normalizes the direction of rotation of the pendulum.
-            this.transform.rotation = Quaternion.Euler(0, _pendulumDirection, 0);
+            this.transform.rotation = Quaternion.Euler(0, pendulumDirection, 0);
 
             // Normalizes the amplitude of the start point of the rotation of the pendulum.
-            _start = PendulumRotation(_pendulumAmplitude);
+            _start = PendulumRotation(pendulumAmplitude);
 
             // Normalizes the amplitude of the end point of the rotation of the pendulum.
-            _end = PendulumRotation(-_pendulumAmplitude);
+            _end = PendulumRotation(-pendulumAmplitude);
         }
 
         /// <summary>
