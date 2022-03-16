@@ -9,7 +9,7 @@
 # These files are text and should be normalized =====
 # (Convert crlf => lf) ==============================
 # ===================================================
-*.gitattributes                                  text
+.gitattributes                                  text
 .gitignore                                       text
 *.md                   diff=markdown             text
 *.txt		                                     text
