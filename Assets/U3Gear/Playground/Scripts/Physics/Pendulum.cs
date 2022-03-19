@@ -3,12 +3,37 @@ using UnityEngine.Serialization;
 
 namespace U3Gear.Playground.Scripts.Physics
 {
-/// <summary>
-    /// Mechanize the rotation between two points causing pendulum effect.
-    /// This script should be placed at the pivot of the object.
+    /// <summary>
+    ///     Mechanize the rotation between two points causing pendulum effect.
+    ///     This script should be placed at the pivot of the object.
     /// </summary>
     public class Pendulum : MonoBehaviour
     {
+        /// ==================================================
+        /// Private Visible Variables
+        /// ==================================================
+        [FormerlySerializedAs("_speed")] [SerializeField] [Range(0.0f, 5.0f)] [Tooltip("The speed of the pendulum.")]
+        private float speed = 2.0f;
+
+        [FormerlySerializedAs("_startTime")]
+        [SerializeField]
+        [Range(0.0f, 10.0f)]
+        [Tooltip(
+            "The moment of departure of the pendulum, creating a different moment in relation to the other pendulums.")]
+        private float startTime;
+
+        [FormerlySerializedAs("_pendulumDirection")]
+        [SerializeField]
+        [Range(0.0f, 360.0f)]
+        [Tooltip("The direction of the pendulum in degrees.")]
+        private float pendulumDirection;
+
+        [FormerlySerializedAs("_pendulumAmplitude")]
+        [SerializeField]
+        [Range(0.0f, 90.0f)]
+        [Tooltip("The amplitude of rotation of the pendulum in degrees. Influence speed at low amplitudes.")]
+        private float pendulumAmplitude = 90.0f;
+
         /// ==================================================
         /// Private Variables
         /// ==================================================
@@ -17,28 +42,12 @@ namespace U3Gear.Playground.Scripts.Physics
         private Quaternion _start, _end;
 
         /// ==================================================
-        /// Private Visible Variables
-        /// ==================================================
-
-        [FormerlySerializedAs("_speed")] [SerializeField, Range(0.0f, 5.0f), Tooltip("The speed of the pendulum.")]
-        private float speed = 2.0f;
-
-        [FormerlySerializedAs("_startTime")] [SerializeField, Range(0.0f, 10.0f), Tooltip("The moment of departure of the pendulum, creating a different moment in relation to the other pendulums.")]
-        private float startTime;
-
-        [FormerlySerializedAs("_pendulumDirection")] [SerializeField, Range(0.0f, 360.0f), Tooltip("The direction of the pendulum in degrees.")]
-        private float pendulumDirection;
-
-        [FormerlySerializedAs("_pendulumAmplitude")] [SerializeField, Range(0.0f, 90.0f), Tooltip("The amplitude of rotation of the pendulum in degrees. Influence speed at low amplitudes.")]
-        private float pendulumAmplitude = 90.0f;
-
-        /// ==================================================
         /// Unity Methods
         /// ==================================================
-
         /// <summary>
-        /// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
-        /// Like the Awake function, Start is called exactly once in the lifetime of the script
+        ///     Start is called on the frame when a script is enabled just before any of the Update methods is called the first
+        ///     time.
+        ///     Like the Awake function, Start is called exactly once in the lifetime of the script
         /// </summary>
         private void Start()
         {
@@ -46,10 +55,10 @@ namespace U3Gear.Playground.Scripts.Physics
         }
 
         /// <summary>
-        /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
-        /// FixedUpdate should be used instead of Update when dealing with Rigidbody.
-        /// For example when adding a force to a rigidbody, you have to apply the force every
-        /// fixed frame inside FixedUpdate instead of every frame inside Update.
+        ///     This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+        ///     FixedUpdate should be used instead of Update when dealing with Rigidbody.
+        ///     For example when adding a force to a rigidbody, you have to apply the force every
+        ///     fixed frame inside FixedUpdate instead of every frame inside Update.
         /// </summary>
         private void FixedUpdate()
         {
@@ -58,20 +67,20 @@ namespace U3Gear.Playground.Scripts.Physics
 
             // Assigns the rotation interpolated between start and _end by sine of startTime * _speed
             // to the transform.rotation and normalizes the result afterwards.
-            transform.rotation = Quaternion.Lerp(_start, _end, (Mathf.Sin(startTime * speed + Mathf.PI / 2) + 1.0f) / 2.0f);
+            transform.rotation =
+                Quaternion.Lerp(_start, _end, (Mathf.Sin(startTime * speed + Mathf.PI / 2) + 1.0f) / 2.0f);
         }
 
         /// ==================================================
         /// Methods
         /// ==================================================
-
         /// <summary>
-        /// Initializes the Unity components.
+        ///     Initializes the Unity components.
         /// </summary>
         private void Init()
         {
             // Normalizes the direction of rotation of the pendulum.
-            this.transform.rotation = Quaternion.Euler(0, pendulumDirection, 0);
+            transform.rotation = Quaternion.Euler(0, pendulumDirection, 0);
 
             // Normalizes the amplitude of the start point of the rotation of the pendulum.
             _start = PendulumRotation(pendulumAmplitude);
@@ -81,7 +90,7 @@ namespace U3Gear.Playground.Scripts.Physics
         }
 
         /// <summary>
-        /// Pendulum rotation mechanics. Unity internally uses Quaternions to represent all rotations.
+        ///     Pendulum rotation mechanics. Unity internally uses Quaternions to represent all rotations.
         /// </summary>
         /// <param name="angle">The angle.</param>
         /// <returns>pendulumRotation</returns>
@@ -95,7 +104,8 @@ namespace U3Gear.Playground.Scripts.Physics
             else if (angleZ < -180)
                 angleZ += 360;
 
-            pendulumRotation.eulerAngles = new Vector3(pendulumRotation.eulerAngles.x, pendulumRotation.eulerAngles.y, angleZ);
+            pendulumRotation.eulerAngles =
+                new Vector3(pendulumRotation.eulerAngles.x, pendulumRotation.eulerAngles.y, angleZ);
             return pendulumRotation;
         }
     }

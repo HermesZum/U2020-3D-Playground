@@ -65,7 +65,8 @@ namespace U3Gear.Playground.Scripts.Editor
         {
             System.IO.Directory.CreateDirectory(Directory);
             var currentTime = DateTime.Now;
-            var filename = currentTime.ToString(CultureInfo.CurrentCulture).Replace('/', '-').Replace(':', '_') + ".png";
+            var filename = currentTime.ToString(CultureInfo.CurrentCulture).Replace('/', '-').Replace(':', '_') +
+                           ".png";
             var path = Directory + filename;
             ScreenCapture.CaptureScreenshot(path);
             _latestScreenshotPath = path;

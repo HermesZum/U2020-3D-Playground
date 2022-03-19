@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityStandardAssets.Water
+namespace U3Gear.Playground.Scripts.Water
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(WaterBase))]
@@ -9,13 +9,9 @@ namespace UnityStandardAssets.Water
         public void Awake()
         {
             if (enabled)
-            {
                 OnEnable();
-            }
             else
-            {
                 OnDisable();
-            }
         }
 
 

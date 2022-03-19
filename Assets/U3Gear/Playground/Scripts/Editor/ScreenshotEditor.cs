@@ -5,12 +5,14 @@ using UnityEngine;
 namespace U3Gear.Playground.Scripts.Editor
 {
     [CustomEditor(typeof(Screenshot))]
-    public class ScreenshotEditor : UnityEditor.Editor {
-        public override void OnInspectorGUI() {
+    public class ScreenshotEditor : UnityEditor.Editor
+    {
+        public override void OnInspectorGUI()
+        {
             DrawDefaultInspector();
 
             if (!GUILayout.Button("Take Screenshot")) return;
-            ((Screenshot)serializedObject.targetObject).TakeScreenshot();
+            ((Screenshot) serializedObject.targetObject).TakeScreenshot();
             AssetDatabase.Refresh();
         }
     }

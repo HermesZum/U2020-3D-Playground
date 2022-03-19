@@ -1,12 +1,12 @@
 # Ignore Lighting (Will need rebuild in new project)
 # ===============
-# LightingData.asset
-# LightingData.asset.meta
+LightingData.asset
+LightingData.asset.meta
 
 # Ignore Reflection Probe (Will need rebuild in new project)
 # =======================
-# *.exr
-# *.exr.meta
+*.exr
+*.exr.meta
 
 # Ignore Everything
 # =================
