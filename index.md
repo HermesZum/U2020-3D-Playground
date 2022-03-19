@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+# U2020 - 3D - Playground
 
-You can use the [editor on GitHub](https://github.com/HermesZum/U2020-3D-Playground/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## System Requirements for Unity 2020.3
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Operating system version:** Windows 7 (SP1+) and Windows 10, 64-bit versions only. High Sierra 10.13+, Ubuntu 20.04, Ubuntu 18.04, and CentOS 7
 
-### Markdown
+**CPU:** X64 architecture with SSE2 instruction set support	X64 architecture with SSE2 instruction set support X64 architecture with SSE2 instruction set support.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**Graphics API:** DX10, DX11, and DX12-capable GPUs	Metal-capable Intel and AMD GPUs, OpenGL 3.2+ or Vulkan-capable, Nvidia and AMD GPUs.
 
-```markdown
-Syntax highlighted code block
+**Additional requirements:** Hardware vendor officially supported drivers Apple officially supported drivers Gnome desktop environment running on top of X11 windowing system, Nvidia official proprietary graphics driver or AMD Mesa graphics driver. Other configuration and user environment as provided stock with the supported distribution (Kernel, Compositor, etc.).
 
-# Header 1
-## Header 2
-### Header 3
+For all operating systems, the Unity Editor is supported on workstations or laptop form factors, running without emulation, container or compatibility layer.
 
-- Bulleted
-- List
+### What is this repository for? ###
 
-1. Numbered
-2. List
+* Quick summary
 
-**Bold** and _Italic_ and `Code` text
+Project for development and testing of C# programming in Unity Engine.
 
-[Link](url) and ![Image](src)
-```
+* Version
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+This project is in the Alpha version: v0.1
 
-### Jekyll Themes
+### Who do I talk to? ###
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HermesZum/U2020-3D-Playground/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* Repo owner or admin
 
-### Support or Contact
+HermesZum
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+* Other community or team contact
+
+3Gear
