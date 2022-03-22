@@ -1,5 +1,7 @@
 # U2020 - 3D - Playground
 
+![Playground](https://repository-images.githubusercontent.com/471745410/94faf17f-c0fd-4b3c-84be-1eb7807457f9)
+
 ## System Requirements for Unity 2020.3
 
 **Operating system version:** Windows 7 (SP1+) and Windows 10, 64-bit versions only. High Sierra 10.13+, Ubuntu 20.04, Ubuntu 18.04, and CentOS 7
